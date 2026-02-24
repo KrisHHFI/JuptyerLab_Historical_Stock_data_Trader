@@ -21,23 +21,26 @@
 ## Project Architecture
 
 ```text
-historicalStockDataDownload/
+historicalStockTrader/
 ├── .gitignore
 ├── AGENTS.md
+├── README.md
 ├── constants.py
 ├── main.ipynb
-├── downloads/                  # generated CSV outputs (git-ignored)
 └── utils/
     ├── __init__.py
-    ├── build_call_record.py
-   ├── enforce_call_limit.py
-   ├── get_max_available_share_price_data.py
+   ├── build_file_metadata_rows.py
+   ├── build_stock_metadata_rows.py
+   ├── create_metadata_table.py
+   ├── parse_stock_filename_metadata.py
    ├── plot_compressed_trading_chart.py
    ├── print_header.py
-    └── print_calls_made.py
+   └── print_metadata_tables.py
 ```
 
 ## Notes
 
 - `main.ipynb` is the main execution entry for this project.
 - Utility logic is separated under `utils/` using the one-function-per-file convention.
+- The project charts from a configured CSV path and does not include in-project data download functions.
+- The notebook parses ticker/interval/period/timestamp from the CSV filename and prints metadata in separate `File Metadata` and `Stock Metadata` tables.
