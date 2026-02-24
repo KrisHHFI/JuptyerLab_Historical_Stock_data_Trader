@@ -7,6 +7,7 @@ import yfinance as yf
 from constants import CALL_DELAY_SECONDS, CALL_LIMIT, INTERVAL, TARGET_TICKER
 from utils.build_call_record import build_call_record
 from utils.enforce_call_limit import enforce_call_limit
+from utils.print_header import print_header
 from utils.print_calls_made import print_calls_made
 
 
@@ -46,6 +47,7 @@ def get_max_available_share_price_data(
     )
     calls_made.append(call_record)
 
+    print_header("REQUEST")
     print(
         f"CALL 1: yf.Ticker('{target_ticker}').history(period='{period}', interval='{interval}', auto_adjust=False)"
     )
@@ -71,6 +73,7 @@ def get_max_available_share_price_data(
         calls_made[-1]["interval"] = interval
         calls_made[-1]["csv_path"] = str(csv_file_path)
 
+        print_header("RESULT")
         print(
             f"SUCCESS: Downloaded {len(data)} rows for {target_ticker} at interval '{interval}'."
         )
@@ -80,6 +83,7 @@ def get_max_available_share_price_data(
         calls_made[-1]["status"] = "failure"
         calls_made[-1]["error"] = str(error)
         csv_file_path = None
+        print_header("RESULT")
         print(f"FAILURE: {error}")
 
     print_calls_made(calls_made)

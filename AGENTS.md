@@ -32,6 +32,8 @@ historicalStockDataDownload/
     ├── build_call_record.py
    ├── enforce_call_limit.py
    ├── get_max_available_share_price_data.py
+   ├── plot_compressed_trading_chart.py
+   ├── print_header.py
     └── print_calls_made.py
 ```
 
