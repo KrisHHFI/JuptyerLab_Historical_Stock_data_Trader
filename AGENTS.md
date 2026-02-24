@@ -34,12 +34,16 @@ historicalStockTrader/
    ├── create_metadata_table.py
    ├── parse_stock_filename_metadata.py
    ├── plot_compressed_trading_chart.py
+   ├── print_h1.py
+   ├── print_h2.py
    ├── print_header.py
+   ├── print_subheader.py
    └── print_metadata_tables.py
 ```
 
 ## Notes
 
+- Repository: https://github.com/KrisHHFI/JuptyerLab_Historical_Stock_data_Trader
 - `main.ipynb` is the main execution entry for this project.
 - Utility logic is separated under `utils/` using the one-function-per-file convention.
 - The project charts from a configured CSV path and does not include in-project data download functions.
