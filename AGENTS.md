@@ -28,17 +28,29 @@ historicalStockTrader/
 ├── constants.py
 ├── main.ipynb
 └── utils/
-    ├── __init__.py
-   ├── build_file_metadata_rows.py
-   ├── build_stock_metadata_rows.py
-   ├── create_metadata_table.py
-   ├── parse_stock_filename_metadata.py
-   ├── plot_compressed_trading_chart.py
-   ├── print_h1.py
-   ├── print_h2.py
-   ├── print_header.py
-   ├── print_subheader.py
-   └── print_metadata_tables.py
+   ├── __init__.py
+   ├── data/
+   │   ├── __init__.py
+   │   ├── build_file_metadata_rows.py
+   │   ├── build_performance_rows.py
+   │   ├── build_stock_metadata_rows.py
+   │   ├── parse_stock_filename_metadata.py
+   │   └── plot_compressed_trading_chart.py
+   ├── printing/
+   │   ├── __init__.py
+   │   ├── create_metadata_table.py
+   │   ├── print_h1.py
+   │   ├── print_h2.py
+   │   ├── print_header.py
+   │   ├── print_subheader.py
+   │   ├── print_metadata_tables.py
+   │   ├── print_performance_table.py
+   │   └── print_trades_table.py
+   ├── trading_algorithms/  # internal algorithm files (git-ignored)
+   └── trade_actions/
+      ├── __init__.py
+      ├── execute_buy_trade.py
+      └── execute_sell_trade.py
 ```
 
 ## Notes
@@ -48,3 +60,4 @@ historicalStockTrader/
 - Utility logic is separated under `utils/` using the one-function-per-file convention.
 - The project charts from a configured CSV path and does not include in-project data download functions.
 - The notebook parses ticker/interval/period/timestamp from the CSV filename and prints metadata in separate `File Metadata` and `Stock Metadata` tables.
+- Do not document or discuss files inside `utils/trading_algorithms/` in AGENTS notes or user-facing summaries.

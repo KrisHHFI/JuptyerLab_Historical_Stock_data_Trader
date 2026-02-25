@@ -1,7 +1,7 @@
 from rich.console import Console
 
-from utils.create_metadata_table import create_metadata_table
-from utils.print_h2 import print_h2
+from utils.printing.create_metadata_table import create_metadata_table
+from utils.printing.print_h2 import print_h2
 
 
 def print_metadata_tables(

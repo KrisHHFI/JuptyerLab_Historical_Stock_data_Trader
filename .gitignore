@@ -25,3 +25,6 @@ __pycache__/
 
 # Generated download output
 downloads/
+
+# Trading algorithm workspace
+utils/trading_algorithms/
