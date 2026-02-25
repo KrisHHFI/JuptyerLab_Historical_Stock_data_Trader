@@ -23,6 +23,11 @@
    - No fantasy behavior (for example: perfect fills, impossible timing, guaranteed wins, or clairvoyant signals).
    - Include practical constraints when relevant (for example: execution frictions, liquidity limits, and risk controls).
 
+6. **Trading algorithm files need a logic header**
+   - Every file in `utils/trading_algorithms/` must start with a short top-of-file comment.
+   - The comment should explain the algorithm’s core logic, entry/exit concept, and key risk controls in plain language.
+   - Write the comment so an everyday person can understand it without finance or coding jargon.
+
 ## Project Architecture
 
 ```text
