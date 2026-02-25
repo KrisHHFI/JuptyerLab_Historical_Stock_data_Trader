@@ -27,6 +27,7 @@ historicalStockTrader/
 ├── README.md
 ├── constants.py
 ├── main.ipynb
+├── raw_data/  # local CSV inputs (git-ignored)
 └── utils/
    ├── __init__.py
    ├── data/
@@ -59,5 +60,6 @@ historicalStockTrader/
 - `main.ipynb` is the main execution entry for this project.
 - Utility logic is separated under `utils/` using the one-function-per-file convention.
 - The project charts from a configured CSV path and does not include in-project data download functions.
+- Active CSV inputs are stored in `raw_data/` and should remain git-ignored.
 - The notebook parses ticker/interval/period/timestamp from the CSV filename and prints metadata in separate `File Metadata` and `Stock Metadata` tables.
 - Do not document or discuss files inside `utils/trading_algorithms/` in AGENTS notes or user-facing summaries.

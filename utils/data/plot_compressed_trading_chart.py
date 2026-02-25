@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+from pathlib import Path
 
 
 def plot_compressed_trading_chart(
@@ -20,7 +21,9 @@ def plot_compressed_trading_chart(
 
     x_positions = range(len(plot_data))
 
-    plt.figure(figsize=(12, 5))
+    figure = plt.figure(num=1, figsize=(12, 5), clear=True)
+    if hasattr(figure.canvas, "header_visible"):
+        figure.canvas.header_visible = False
     plt.plot(x_positions, plot_data["Close"], linewidth=1)
 
     if trades:
@@ -58,7 +61,7 @@ def plot_compressed_trading_chart(
         if buy_x or sell_x:
             plt.legend(loc="best")
 
-    plt.title(f"{ticker} Close Price ({interval})")
+    plt.title(Path(csv_path).name)
     plt.xlabel("Trading Time (compressed)")
     plt.ylabel("Close Price")
     plt.grid(True, alpha=0.3)
