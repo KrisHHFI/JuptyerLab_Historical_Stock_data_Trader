@@ -2,12 +2,9 @@ from rich import box
 from rich.console import Console
 from rich.table import Table
 
-from utils.printing.print_h2 import print_h2
-
 
 def print_trades_table(trades: list[dict]) -> None:
     console = Console()
-    print_h2("Trades")
 
     table = Table(
         show_header=True,
