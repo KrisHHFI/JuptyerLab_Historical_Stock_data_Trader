@@ -18,6 +18,11 @@
    - Do not repeatedly establish a new notebook kernel or Python environment when one is already active and working.
    - Only restart or reconfigure the kernel/environment when there is a concrete execution/import failure that requires it.
 
+5. **Trading algorithms must be realistic**
+   - Strategy logic and backtests must use realistic market assumptions.
+   - No fantasy behavior (for example: perfect fills, impossible timing, guaranteed wins, or clairvoyant signals).
+   - Include practical constraints when relevant (for example: execution frictions, liquidity limits, and risk controls).
+
 ## Project Architecture
 
 ```text

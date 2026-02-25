@@ -2,3 +2,4 @@ stock_data_location: str = "/Users/kristopherpepper/Documents/jupyterProjects/hi
 
 # Trading
 capital: int = 10000
+transaction_fee_bps: float = 1.0

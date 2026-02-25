@@ -6,8 +6,14 @@ def execute_sell_trade(
     sell_price: float,
     sell_time,
     trade_number: int,
+    transaction_fee_bps: float = 0.0,
+    entry_fee_paid: float = 0.0,
 ) -> dict:
-    updated_cash = cash + shares * sell_price
+    fee_rate = abs(transaction_fee_bps) / 10000
+    gross_proceeds = shares * sell_price
+    exit_fee_paid = gross_proceeds * fee_rate
+    net_proceeds = gross_proceeds - exit_fee_paid
+    updated_cash = cash + net_proceeds
 
     if buy_price is None or buy_price <= 0:
         return {
@@ -16,8 +22,10 @@ def execute_sell_trade(
             "trade_record": None,
         }
 
-    trade_return_pct = ((sell_price - buy_price) / buy_price) * 100
-    trade_pnl = (sell_price - buy_price) * shares
+    gross_cost = buy_price * shares
+    total_cost_basis = gross_cost + float(entry_fee_paid)
+    trade_pnl = net_proceeds - total_cost_basis
+    trade_return_pct = (trade_pnl / total_cost_basis) * 100 if total_cost_basis > 0 else 0.0
 
     return {
         "cash": updated_cash,
@@ -31,5 +39,7 @@ def execute_sell_trade(
             "shares": int(shares),
             "pnl": float(trade_pnl),
             "return_pct": float(trade_return_pct),
+            "entry_fee": float(entry_fee_paid),
+            "exit_fee": float(exit_fee_paid),
         },
     }

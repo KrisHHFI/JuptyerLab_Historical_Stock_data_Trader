@@ -4,6 +4,7 @@ def build_performance_rows(performance: dict) -> list[tuple[str, str]]:
         ("Initial capital", f"${performance['initial_capital']:,.2f}"),
         ("Final capital", f"${performance['final_capital']:,.2f}"),
         ("Net P&L", f"${performance['net_pnl']:,.2f}"),
+        ("Total fees", f"${performance.get('total_fees_paid', 0.0):,.2f}"),
         ("Return %", f"{performance['return_pct']:.2f}%"),
         ("Trades", str(performance["trade_count"])),
         ("Winning trades", str(performance["winning_trades"])),
